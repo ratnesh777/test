@@ -1,0 +1,129 @@
+<p>create-customer works!</p>
+
+<div class="ng-cloak rightContentMain"></div>
+
+<div class="rightContentNoFooterContainer">
+	<div class="row" style="margin-top: 2%">
+	
+		<!-- <form (ngSubmit)="onSubmit()" #createCustomerForm="ngForm" class="form-horizontal"> -->  		
+		 <form (ngSubmit)="onSubmit(f)" #f name="createCustomerForm" class="form-horizontal"> 
+		 
+		  
+		  
+			<div class="col-sm-12 col-md-12" >
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">
+									Customer<font color=red>*</font>
+								</h5>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="text" id="readCustomer" ngModel name="custName" required
+									 maxlength="256">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">
+									Email Domain
+								</h5>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="text" id="readEmailDomain" ngModel name="emailDomain"
+									 maxlength="256">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">Site Id</h5>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="text" id="readSiteId" ngModel name="siteID"
+									 maxlength="256">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">Soft Client URL</h5>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control"  type="url" id="readSoftClientUrl" ngModel name="softClientURL"
+								ng-pattern="/^(?:http(s)?:\/\/)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/"
+									maxlength="512">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">
+									NTR Server FQDN
+								</h5>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="text" id="readNtrServerFqdn" ngModel name="ntrServerFQDN"
+									 maxlength="649" ng-pattern="/^(?=^.{1,254}$)(^(?:(?!\.|-)([A-Za-z0-9\-\*]{1,63}|([A-Za-z0-9\-]{1,62}[A_Za-z0-9]))\.)+(?:[A-Za-z]{2,})$)$/">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">
+									NTR Url
+								</h5>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="url" id="readNtrUrl" ng-model name="ntrURL"
+									 ng-pattern="/^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.:\w]*[0-9a-zA-Z])*(:(0-9)*‌​)*(\/?)([a-zA-Z0-9\-‌​\.\?\,\'\=\/\\\+&amp;%‌​\$#_]*)?$/" maxlength="512">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">
+									Skype for Business Url
+								</h5>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="url" id="readSkypeForBusinessUrl" ngModel name="skypeURL"
+									 maxlength="512">
+							</div>
+						</div>					
+			 			<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h5 class="pull-right">
+									ADFS<font color=red>*</font>
+								</h5>
+							</div>
+					 		<div class="col-md-5 col-sm-5 form-group" id="adfsGRP">
+								 <!-- <div ng-repeat="enableOption in adfsEnableOptions" class="col-sm-2">
+									<input type="radio" name="adfs" id="adfsEnable{{enableOption.name}}" class="mr-5" ng-model="customerInfo.isUsingADFS"
+										ng-value="enableOption.value" ng-required= "!editFlag" ng-disabled="editFlag">{{enableOption.name}}
+								</div> -->
+								 <div class="col-sm-2">
+									<input type="radio" name="isUsingADFS" class="mr-5" ng-model value="true" /> true
+									<input type="radio" name="isUsingADFS" class="mr-5" ng-model value="false" /> false
+								</div> 
+							</div>  
+						</div>
+						<div class="row form-group">
+							<div class="col-md-5 col-sm-5"></div>
+							<div class="col-md-3 col-sm-3">
+								
+								<!-- <button style="width:100%" class="btn btn-success" id="createCustomer"
+									ng-disabled="createCustomerForm.$invalid || createCustomerForm.$pristine"
+									(click)="createCustomer()">Save</button> -->
+									
+									<button style="width:100%" 
+											class="btn btn-success" 
+											id="createCustomer" 
+											type="submit"
+											[disabled]="!createCustomerForm.valid">Save</button>
+									
+								 	<!-- <button style="width:100%" class="btn btn-primary"  type="submit">Submit</button>  -->
+									
+							</div>
+						</div>
+				</div>
+		
+		</form>
+	</div>
+	
+
+</div>

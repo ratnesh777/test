@@ -18,6 +18,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { TestComponent } from './components/test/test.component';
 import { HomeComponent } from './components/home/home.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { AgGridModule } from 'ag-grid-angular/main';
+import { GridComponent } from './components/grid/grid.component';
 
 
 const routes: Routes = [
@@ -25,7 +27,7 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent   },
     { path: 'test', component: TestComponent  },
     { path: 'customer', component: CustomerComponent  },
-     { path: '**', redirectTo: 'test' }//,
+     { path: '**', redirectTo: 'test' }//,  
    // { path: 'test' , component: TestComponent },
    // { path: 'createCustomer' , component: CreateCustomerComponent }
 ];
@@ -37,13 +39,19 @@ const routes: Routes = [
     FooterComponent,
     TestComponent,
     HomeComponent,
-    CustomerComponent
+    CustomerComponent,
+    GridComponent
   ],
-  imports: [
+  imports: [ 
     BrowserModule,
+      AgGridModule.withComponents(
+            [GridComponent]
+        ),
+      
    // HttpModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -24,7 +24,10 @@
             ],
             "styles": [
              "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "node_modules/ag-grid/src/styles/ag-grid.scss",
+                "node_modules/ag-grid/src/styles/ag-theme-balham.scss",
+               "src/styles/app.scss",
+               "src/styles.css"
             ],
             "scripts": []
           },

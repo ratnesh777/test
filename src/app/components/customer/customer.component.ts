@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import {ManageCustomerService} from './manage-customer.service';
 import {GridOptions} from "ag-grid";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {NgForm} from '@angular/forms';
 //import { CustomHeader } from "../../components/grid/grid.custom-header.component";
 
 @Component({
@@ -14,7 +15,18 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CustomerComponent implements OnInit {
 
     private apiDataUrl: string = "http://localhost:8443/api/customer";
+    
+   // private apiDataUrl: string = "http://localhost:8443/api/customer/customersSort";
+    
+    customerData={ 
+            name: '',
+            emailDomain: ''
+        
+        };
 
+    name:string='';
+    emailDomain:string='';
+   // custName:string='';
     private gridOptions: GridOptions = {
 
     };
@@ -97,6 +109,12 @@ export class CustomerComponent implements OnInit {
                 field: 'name',
                 suppressMenu: true
 
+            },
+             {
+                headerName: 'Email Domain',
+                field: 'emailDomain',
+                suppressMenu: true
+
             }
         ];
     }
@@ -115,5 +133,27 @@ export class CustomerComponent implements OnInit {
             }];
     }
 
+    @ViewChild('createCustomerForm') customerForm : NgForm;
+    createCustomer(){
+       
+    //   console.log(customerForm);
+    //     this.customerData.name = this.customerForm.value.custName;
+     //    this.customerData.emailDomain = this.customerForm.value.emailDomain;
+        this.customerData.name=this.name;
+        this.customerData.emailDomain = this.emailDomain;
+         console.log('inside create customer' + this.customerData.name +  ", "  +  this.customerData.emailDomain);
+        
+         this.customerService.createCustomer(this.apiDataUrl,this.customerData)
+         .subscribe(
+             (response) =>{
+                  this.customers = this.getCustomers(),
+                  console.log(response)
+                  }
+             ,
+              err => console.error(err),
+            () => console.log('done loading customers')
+          );
+        
+        }
 
 }

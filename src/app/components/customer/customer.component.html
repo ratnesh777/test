@@ -1,6 +1,50 @@
 
   
     <h2>Customer</h2>
+<!--     <div> 
+     <form (ngSubmit)="onSubmit(f)" #f name="createCustomerForm" class="form-horizontal"> 
+     	<div class="col-sm-12 col-md-12" >
+     			<div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h6 class="pull-right">
+									Customer<font color=red>*</font>
+								</h6>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="text" id="readCustomer" ngModel name="custName" required
+									 maxlength="256">
+								<input class="form-control" type="text" id="readCustomer" [(ngModel)]="custName" required
+									 maxlength="256">	 
+							</div>
+			  </div>
+			  <div class="row form-group">
+							<div class="col-md-5 col-sm-5">
+								<h6 class="pull-right">
+									Email Domain
+								</h6>
+							</div>
+							<div class="col-md-3 col-sm-3">
+								<input class="form-control" type="text" id="readEmailDomain" ngModel name="emailDomain"
+									 maxlength="256">
+							</div>
+			</div>
+			<button style="width:20%" class="btn btn-success" 	id="createCustomer" type="submit" (click)=createCustomer()>Save</button>
+			
+			<button style="width:100%" class="btn btn-primary"  type="submit">Submit</button> 
+			
+    	 </div>
+     </form>
+    </div> -->
+    
+  <div>
+  
+   Name <input type="text" class="form-control" [(ngModel)]="name" /> <br>
+    
+    Email Domain <input type="text" class="form-control" [(ngModel)]="emailDomain" />
+    
+    <button style="width:20%" class="btn btn-success" 	id="createCustomer" type="submit" (click)=createCustomer()>Save</button>
+    
+   </div> 
     <label>Customer Names</label>
   <ul>
       

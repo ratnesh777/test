@@ -30,6 +30,19 @@ export class ManageCustomerService {
 
         console.log("exiting service");
     }
+    
+    createCustomer(url:string, data){
+        
+      console.log('inside create customer' + data.name + " "+ data.emailDomain);
+        
+       return  this.http.post(url,data);
+        /* this.http.post(url).subscribe(
+             data => data,
+            err => console.error(err),
+            () => console.log('done loading customers')
+          );*/
+        
+        }
 
 
 }

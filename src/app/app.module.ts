@@ -44,6 +44,7 @@ const routes: Routes = [
   ],
   imports: [ 
     BrowserModule,
+      FormsModule,
       AgGridModule.withComponents(
             [GridComponent]
         ),

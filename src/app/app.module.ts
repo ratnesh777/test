@@ -20,6 +20,10 @@ import { HomeComponent } from './components/home/home.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { AgGridModule } from 'ag-grid-angular/main';
 import { GridComponent } from './components/grid/grid.component';
+import { TestDirective } from './directive/testDirective';
+import { BetterHighlightDirective } from './directive/better-highlight.directive';
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
+import {JwtInterceptor} from './app.interceptor';
 
 
 const routes: Routes = [
@@ -40,7 +44,9 @@ const routes: Routes = [
     TestComponent,
     HomeComponent,
     CustomerComponent,
-    GridComponent
+    GridComponent,
+    TestDirective,
+    BetterHighlightDirective
   ],
   imports: [ 
     BrowserModule,
@@ -54,7 +60,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+  }
+  ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
